@@ -6,7 +6,7 @@ A comprehensive ELT (Extract, Load, Transformation) project using Apache Spark, 
 
 # ****The End-To-End Data Pipeline****
 
-![Untitled](resources/Untitled.png)
+![Untitled](resources/end-to-end.png)
 
 # **Built With**
 
@@ -39,19 +39,19 @@ The pipeline contains the following stages:
 - Deploy to Airflow Stage
 - Post Actions Stage (Gmail Notification)
 
-![Untitled](resources/Untitled%201.png)
+![Untitled](resources/jenkins.png)
 
 1. In Jenkins, create a pipeline `spark-hive-elt-cicd` and configure it to check the source code from GitHub repository which contains the jenkinsfile. 
 
-![Untitled](resources/Untitled%202.png)
+![Untitled](resources/stageview.png)
 
 2. You can trigger the pipeline manually or using GitHub hook trigger that listen for code changes and trigger the pipeline.
 
-![Untitled](resources/Untitled%203.png)
+![Untitled](resources/emailnotification.png)
 
 3. I used Email notification plugin to send me email either on success or on failure to track the status of my pipeline.
 
-![Untitled](resources/Untitled%204.png)
+![Untitled](resources/airflowpipeline.png)
 
 # Airflow Pipeline
 
@@ -61,19 +61,19 @@ The Airflow pipeline contains the following tasks:
 - Load data into hive
 - Transform the data using Data Build Tool(DBT)
 
-![Untitled](resources/Untitled%205.png)
+![Untitled](resources/Airflow.png)
 
 1. After deploying the ELT JAR and airflow Dag, then you will find that Dag is added and its tasks are scheduled to be run. 
 
-![Untitled](resources/Untitled%206.png)
+![Untitled](resources/dag.png)
 
 2. Before loading the data into Hive, The data warehouse  is empty.
 
-![Untitled](resources/Untitled%207.png)
+![Untitled](resources/emptyhive.png)
 
 3. After loading the data into Hive.
 
-![Untitled](resources/Untitled%208.png)
+![Untitled](resources/hivedata.png)
 
 ## ELT
 
@@ -102,11 +102,11 @@ dbt_with_hive:
 > 
 2. The first simple model `events_2019.sql` , Filter events of year 2019
     
-    ![Untitled](resources/Untitled%209.png)
+    ![Untitled](resources/eventsql.png)
     
 3. After loading the data into Hive the DBT job will be run and execute the models and save them inside the data warehouse.
 
-![Untitled](resources/Untitled%2010.png)
+![Untitled](resources/dbtjob.png)
 
 # TO DO
 
