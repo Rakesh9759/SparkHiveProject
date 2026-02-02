@@ -39,19 +39,19 @@ The pipeline contains the following stages:
 - Deploy to Airflow Stage
 - Post Actions Stage (Gmail Notification)
 
-![Untitled](resources/jenkins.png)
+![Untitled](resources/end-to-end.png)
 
 1. In Jenkins, create a pipeline `spark-hive-elt-cicd` and configure it to check the source code from GitHub repository which contains the jenkinsfile. 
 
-![Untitled](resources/stageview.png)
+![Untitled](resources/jenkins.png)
 
 2. You can trigger the pipeline manually or using GitHub hook trigger that listen for code changes and trigger the pipeline.
 
-![Untitled](resources/emailnotification.png)
+![Untitled](resources/stageview.png)
 
 3. I used Email notification plugin to send me email either on success or on failure to track the status of my pipeline.
 
-![Untitled](resources/airflowpipeline.png)
+![Untitled](resources/emailnotification1.png)
 
 # Airflow Pipeline
 
@@ -61,7 +61,7 @@ The Airflow pipeline contains the following tasks:
 - Load data into hive
 - Transform the data using Data Build Tool(DBT)
 
-![Untitled](resources/Airflow.png)
+![Untitled](resources/airflowpipeline.png)
 
 1. After deploying the ELT JAR and airflow Dag, then you will find that Dag is added and its tasks are scheduled to be run. 
 
